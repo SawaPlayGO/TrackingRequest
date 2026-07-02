@@ -1,4 +1,3 @@
-
 import os
 import sys
 
@@ -15,7 +14,7 @@ from alembic import context
 
 from config import settings
 from database import Base
-from models.tracking_request import TrackingRequest # type: ignore
+from models.tracking_request import TrackingRequest  # type: ignore
 
 # this is the Alembic Config object, which provides
 # access to the values within the .ini file in use.
