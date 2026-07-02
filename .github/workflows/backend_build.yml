@@ -1,0 +1,32 @@
+name: Backend CI
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'backend/**'
+  pull_request:
+    branches: [main]
+    paths:
+      - 'backend/**'
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
+      RUFF_PROJECT_VERSION: "0.15.20"
+    steps:
+      - name: Actions checkout
+        uses: actions/checkout@v1
+
+      - name: Install ruff
+        uses: astral-sh/ruff-action@v3
+        with:
+          version: ${{ env.RUFF_PROJECT_VERSION }}
+
+      - name: Run check syntax
+        run: ruff check --fix
+      
+      - name: Run check format
+        run: ruff format --check
