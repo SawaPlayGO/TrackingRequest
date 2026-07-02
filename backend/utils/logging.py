@@ -2,9 +2,7 @@ import structlog
 from structlog.typing import FilteringBoundLogger
 
 structlog.configure(
-    processors=[
-        structlog.processors.JSONRenderer()
-    ],
+    processors=[structlog.processors.JSONRenderer()],
     logger_factory=structlog.BytesLoggerFactory(),
 )
 
