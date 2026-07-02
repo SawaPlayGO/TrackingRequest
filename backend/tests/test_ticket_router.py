@@ -96,7 +96,19 @@ class TicketRouterTest(unittest.TestCase):
 
         app.dependency_overrides[ticket_routers.get_ticket_service] = lambda: service
         app.dependency_overrides[ticket_routers.get_uow] = lambda: DummyUoW()
+        app.dependency_overrides[ticket_routers.verify_admin] = lambda: "admin"
 
         response = self.client.delete("/tickets/1")
 
         self.assertEqual(response.status_code, status.HTTP_204_NO_CONTENT)
+
+    def test_delete_ticket_requires_authorization(self):
+        service = AsyncMock()
+        service.delete_ticket.return_value = None
+
+        app.dependency_overrides[ticket_routers.get_ticket_service] = lambda: service
+        app.dependency_overrides[ticket_routers.get_uow] = lambda: DummyUoW()
+
+        response = self.client.delete("/tickets/1")
+
+        self.assertEqual(response.status_code, status.HTTP_401_UNAUTHORIZED)
