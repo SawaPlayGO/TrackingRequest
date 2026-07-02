@@ -1,12 +1,8 @@
-import asyncio
 import unittest
-from datetime import datetime, timezone
 
-from sqlalchemy import select
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker
 
 from database import Base
-from models.tickets import Ticket
 from repo.ticket_repo import TicketRepo
 from utils.enums import TicketPriority, TicketStatus
 
