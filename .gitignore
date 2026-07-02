@@ -5,6 +5,7 @@ __pycache__/
 .vscode/
 .env
 .pytest_cache/
+*.db
 
 # FRONTEND
 # Logs
