@@ -1,8 +1,10 @@
 from enum import Enum
 
+
 class SortTicket(str, Enum):
     ASC = "asc"
     DESC = "desc"
+
 
 class TicketStatus(str, Enum):
     NEW = "new"

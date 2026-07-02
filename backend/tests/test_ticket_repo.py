@@ -89,7 +89,9 @@ class TicketRepoTest(unittest.IsolatedAsyncioTestCase):
             )
             await session.commit()
 
-            updated = await repo.update_status(ticket_id=ticket.id, new_status=TicketStatus.IN_PROGRESS)
+            updated = await repo.update_status(
+                ticket_id=ticket.id, new_status=TicketStatus.IN_PROGRESS
+            )
             self.assertEqual(updated.status, TicketStatus.IN_PROGRESS)
 
             deleted = await repo.delete(ticket.id)

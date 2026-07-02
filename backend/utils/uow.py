@@ -32,19 +32,21 @@ class IUnitOfWork(ABC):
     @abstractmethod
     async def rollback(self) -> None:
         raise NotImplementedError
-    
+
     @abstractmethod
     async def flush(self) -> None:
         raise NotImplementedError
-    
+
 
 class UnitOfWork(IUnitOfWork):
-    def __init__(self, session_factory: async_sessionmaker[AsyncSession] = async_session):
+    def __init__(
+        self, session_factory: async_sessionmaker[AsyncSession] = async_session
+    ):
         self._session_factory = session_factory
 
     async def __aenter__(self) -> Self:
         self._session = self._session_factory()
-        
+
         self.ticket_repo = TicketRepo(self._session)
         return await super().__aenter__()
 

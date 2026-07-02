@@ -2,7 +2,11 @@ import unittest
 from datetime import datetime, timezone
 
 from services.ticket_services import TicketService
-from schemes.tickets import TicketCreate, TicketPaginationQueryParams, TicketStatusUpdate
+from schemes.tickets import (
+    TicketCreate,
+    TicketPaginationQueryParams,
+    TicketStatusUpdate,
+)
 from utils.enums import TicketPriority, TicketStatus, SortTicket
 from models.tickets import Ticket
 
@@ -37,7 +41,9 @@ class DummyTicketRepo:
 
     async def create(self, *, title, status, priority, description=None):
         self.create_called = True
-        self.create_args = dict(title=title, status=status, priority=priority, description=description)
+        self.create_args = dict(
+            title=title, status=status, priority=priority, description=description
+        )
         return self.create_return
 
     async def get_list(
@@ -250,5 +256,9 @@ class TicketServiceTest(unittest.IsolatedAsyncioTestCase):
     def test_calculate_offset_and_total_pages(self):
         self.assertEqual(TicketService._calculate_offset(page=1, limit=10), 0)
         self.assertEqual(TicketService._calculate_offset(page=3, limit=5), 10)
-        self.assertEqual(TicketService._calculate_total_pages(total_count=0, limit=10), 1)
-        self.assertEqual(TicketService._calculate_total_pages(total_count=21, limit=10), 3)
+        self.assertEqual(
+            TicketService._calculate_total_pages(total_count=0, limit=10), 1
+        )
+        self.assertEqual(
+            TicketService._calculate_total_pages(total_count=21, limit=10), 3
+        )
