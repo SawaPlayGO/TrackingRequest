@@ -10,5 +10,12 @@ class Settings(BaseSettings):
     HOST_API: str = "0.0.0.0"
     PORT_API: int = 8000
 
+    # DB
+    DB_NAME: str = "app"  # {DB_NAME}.db
+
+    @property
+    def DB_URL(self) -> str:
+        return f"sqlite+aiosqlite:///./{self.DB_NAME}.db"
+
 
 settings = Settings()
