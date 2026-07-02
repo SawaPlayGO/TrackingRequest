@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException, status
 
 from services.ticket_services import TicketService
 from utils.uow import IUnitOfWork
-from utils.depend import get_ticket_service, get_uow
+from utils.depend import get_ticket_service, get_uow, verify_admin
 from schemes.tickets import (
     TicketCreate,
     TicketListResponse,
@@ -98,6 +98,7 @@ async def update_ticket_status(
 )
 async def delete_ticket(
     ticket_id: int,
+    verify_admin: str = Depends(verify_admin),
     uow: IUnitOfWork = Depends(get_uow),
     ticket_service: TicketService = Depends(get_ticket_service),
 ) -> None:
@@ -108,9 +109,4 @@ async def delete_ticket(
     except ValueError as e:
         raise HTTPException(
             status_code=status.HTTP_400_BAD_REQUEST, detail={"reason": str(e)}
-        )
-    except Exception:
-        raise HTTPException(
-            status_code=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            detail={"status": "error"},
         )
