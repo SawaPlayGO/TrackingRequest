@@ -13,6 +13,10 @@ class Settings(BaseSettings):
     # DB
     DB_NAME: str = "app"  # {DB_NAME}.db
 
+    # Creditentials for admin
+    ADMIN_USER: str = "admin"
+    ADMIN_PASS: str = "admin"
+
     @property
     def DB_URL(self) -> str:
         return f"sqlite+aiosqlite:///./{self.DB_NAME}.db"

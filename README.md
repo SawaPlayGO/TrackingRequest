@@ -2,13 +2,18 @@
 
 Веб-приложение для отслеживания заявок/запросов. Backend на FastAPI, frontend на React + TypeScript.
 
-## Стек
+### Стек технологий:
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/ВАШ_НИК_НА_GITHUB/TrackingRequest/ci.yml?branch=main&label=CI&style=flat-square)
+![uv version](https://img.shields.io/badge/uv-v0.5+-007ec6?logo=python&style=flat-square)
+![Python Version](https://img.shields.io/badge/python-3.12-blue?logo=python&logoColor=white&style=flat-square)
+![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi)
+![React](https://img.shields.io/badge/React-20232A?style=flat-square&logo=react&logoColor=61DAFB)
+![TypeScript](https://img.shields.io/badge/TypeScript-007ACC?style=flat-square&logo=typescript&logoColor=white)
 
 **Backend**
 - Python 3.12
 - FastAPI
 - uv (управление зависимостями)
-- JWT-авторизация (python-jose)
 - Pydantic v2
 
 **Frontend**
