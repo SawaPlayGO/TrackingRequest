@@ -1,5 +1,3 @@
-function App() {
-  return "App"
-}
+import App from "./app/App";
 
-export default App
+export default App;

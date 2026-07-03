@@ -1,9 +1,11 @@
 from contextlib import asynccontextmanager
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 
 from config import settings
 from routers.ticket_routers import router as ticket_router
+from routers.admin_routers import router as admin_router
 from utils.logging import logger
 from database import engine
 
@@ -17,7 +19,16 @@ async def lifespan(app: FastAPI):
 
 
 app = FastAPI(lifespan=lifespan)
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+    max_age=600,
+)
 app.include_router(ticket_router)
+app.include_router(admin_router)
 
 
 @app.get("/health_check")
