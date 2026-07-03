@@ -18,7 +18,7 @@ jobs:
           port: ${{ secrets.SSH_PORT || 22 }}
           script: |
             cd TrackingRequest
-            git fetch --tags
+            git fetch --tags --force
             git checkout ${{ github.event.release.tag_name }}
             docker compose build
             docker compose up -d
