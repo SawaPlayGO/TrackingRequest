@@ -2,8 +2,11 @@
 
 Веб-приложение для отслеживания заявок/запросов. Backend на FastAPI, frontend на React + TypeScript.
 
+### CI:
+Бэк: ![GitHub Actions Workflow Status Backend](https://img.shields.io/github/actions/workflow/status/SawaPlayGO/TrackingRequest/backend_build.yml?branch=main&label=CI&style=flat-square)
+Фронт: ![GitHub Actions Workflow Status Frontend](https://img.shields.io/github/actions/workflow/status/SawaPlayGO/TrackingRequest/frontend_build.yml?branch=main&label=CI&style=flat-square)
+
 ### Стек технологий:
-![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/SawaPlayGO/TrackingRequest/backend_build.yml?branch=main&label=CI&style=flat-square)
 ![uv version](https://img.shields.io/badge/uv-v0.5+-007ec6?logo=python&style=flat-square)
 ![Python Version](https://img.shields.io/badge/python-3.12-blue?logo=python&logoColor=white&style=flat-square)
 ![FastAPI](https://img.shields.io/badge/FastAPI-005571?style=flat-square&logo=fastapi)
