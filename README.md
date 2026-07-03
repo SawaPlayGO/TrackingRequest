@@ -1,6 +1,7 @@
 # TrackingRequest
 
 Веб-приложение для отслеживания заявок/запросов. Backend на FastAPI, frontend на React + TypeScript.
+Посмотреть проект без выгрузки можно здесь: http://2.27.16.7:80 (Пуш стедалн автоматически при выпуске релиза)
 
 ### CI:
 Бэк: ![GitHub Actions Workflow Status Backend](https://img.shields.io/github/actions/workflow/status/SawaPlayGO/TrackingRequest/backend_build.yml?branch=main&label=CI&style=flat-square)
@@ -27,24 +28,6 @@
 **Инфраструктура**
 - Docker / Docker Compose
 - Nginx (production сборка фронтенда)
-
-## Структура проекта
-
-```
-TrackingRequest/
-├── .github/workflows/     # CI/CD пайплайны
-├── backend/
-│   ├── config.py
-│   ├── main.py
-│   ├── Dockerfile
-│   └── .env
-├── frontend/
-│   ├── src/
-│   ├── Dockerfile
-│   └── .env
-├── docker-compose.yml
-└── .env                   # переменные для docker-compose (порты)
-```
 
 ## Запуск проекта
 
