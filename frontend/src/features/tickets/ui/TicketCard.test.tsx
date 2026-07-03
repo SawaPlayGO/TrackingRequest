@@ -1,8 +1,9 @@
 import { describe, expect, it, vi } from 'vitest';
 import { render, screen } from '@testing-library/react';
 import { TicketCard } from './TicketCard';
+import type { TicketResponse } from '../api/types';
 
-const ticket = {
+const ticket: TicketResponse = {
   id: 1,
   title: 'Test ticket',
   description: 'Test description',
